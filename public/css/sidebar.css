@@ -1,0 +1,125 @@
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+
+  /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }
+
+
+  /*
+   * Sidebar
+   */
+
+.sidebar {
+    position: fixed;
+    top: 35px;
+    bottom: 0;
+    left: 0;
+    z-index: 100; /* Coloca atrás do navbar */
+    padding: 48px 0 0; /* Altura do navbar */
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: .5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Conteúdo com rolagem, se a viewport é menor que o conteúdo. */
+}
+
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+    .sidebar-sticky {
+        position: -webkit-sticky;
+        position: sticky;
+    }
+}
+
+.sidebar .nav-link {
+    font-weight: 500;
+    color: #333;
+}
+
+.sidebar .nav-link {
+    margin-right: 4px;
+    color: rgb(126, 126, 126);
+}
+
+.sidebar .nav-link.active {
+    color: #007bff;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+    color: inherit;
+}
+
+.sidebar-heading {
+    font-size: .75rem;
+    text-transform: uppercase;
+}
+
+  /*
+   * Conteúdo
+   */
+
+[role="main"] {
+    padding-top: 48px; /* Espaço para o navbar fixo. */
+}
+
+  /*
+   * Navbar
+   */
+
+.form-control-dark {
+    color: #fff;
+    background-color: rgba(255, 255, 255, .1);
+    border-color: rgba(255, 255, 255, .1);
+}
+
+.form-control-dark:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+}
+
+.div-nav-sub {
+    background-color: #fff;
+    box-shadow: inset -1px 0 0 rgb(0 0 0 / 10%);
+}
+
+.nav-sub {
+    margin-left: 20px;
+}
+
+.sidebar li .arrow {
+    line-height: 18px;
+    position: absolute;
+    right: 15px;
+    opacity: 1;
+}
+
+/* .sub-collapse > a:not(.collapsed) > .arrow {
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+} */
+
+.sub-collapse > a[aria-expanded="true"] > .arrow{
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
